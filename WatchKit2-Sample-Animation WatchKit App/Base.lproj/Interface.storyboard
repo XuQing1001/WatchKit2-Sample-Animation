@@ -1,15 +1,180 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6221" systemVersion="13E28" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8083.2"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Table Insert And Remove Animation Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="TableInsertAndRemoveAnimationInterfaceController" customModule="WatchKit2_Sample_Animation_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="pbS-Wc-WhL">
+                            <items>
+                                <tableRow identifier="Cell" id="ro4-z1-Hyi" customClass="SimpleRowController" customModule="WatchKit2_Sample_Animation_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="eAT-qR-XZ8">
+                                        <items>
+                                            <label alignment="left" text="标题" id="u7U-kW-EpH"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="u7U-kW-EpH" id="a1S-hb-2La"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="GcY-kL-0vB">
+                            <items>
+                                <button width="40" alignment="center" verticalAlignment="center" title="插入" id="Vkc-Sf-ND2">
+                                    <connections>
+                                        <action selector="insertBtnTapped" destination="AgC-eL-Hgc" id="lrn-GF-ylj"/>
+                                    </connections>
+                                </button>
+                                <button width="40" alignment="center" title="删除" id="7N0-tZ-Sye">
+                                    <connections>
+                                        <action selector="removeBtnTapped" destination="AgC-eL-Hgc" id="JcJ-Dh-AXj"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="pbS-Wc-WhL" id="13e-jd-Klh"/>
+                        <segue destination="bcP-YR-PQy" kind="relationship" relationship="nextPage" id="GAF-LX-mqt"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="89" y="317"/>
+        </scene>
+        <!--Image Animation Interface Controller-->
+        <scene sceneID="6e8-r0-rOu">
+            <objects>
+                <controller hidesWhenLoading="NO" id="PBw-Xi-7g7" customClass="ImageAnimationInterfaceController" customModule="WatchKit2_Sample_Animation_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="center" layout="vertical" id="5lk-bP-z9P">
+                            <items>
+                                <imageView alignment="center" image="rotateStar.png" initiallyAnimated="NO" id="pG7-JV-dIy"/>
+                                <button width="1" alignment="center" verticalAlignment="bottom" title="开始动画" id="ZeF-Qc-Nzm">
+                                    <connections>
+                                        <action selector="ctrlBtnTapped" destination="PBw-Xi-7g7" id="2Yd-dx-Ziq"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="ctrlBtn" destination="ZeF-Qc-Nzm" id="8DZ-mh-Ws5"/>
+                        <outlet property="imageView" destination="pG7-JV-dIy" id="PAz-Wp-e3J"/>
+                        <segue destination="63I-vC-ihU" kind="relationship" relationship="nextPage" id="aOI-cb-mZK"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="79" y="642"/>
+        </scene>
+        <!--Properties Animation Interface Controller-->
+        <scene sceneID="IP4-iL-z1h">
+            <objects>
+                <controller hidesWhenLoading="NO" id="63I-vC-ihU" customClass="PropertiesAnimationInterfaceController" customModule="WatchKit2_Sample_Animation_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="pL0-O5-02m">
+                            <items>
+                                <imageView width="50" height="50" alignment="center" image="yellowStar.png" contentMode="scaleAspectFit" id="2fC-sm-qoG">
+                                    <color key="tintColor" red="1" green="0.97008182554433187" blue="0.063516000487919611" alpha="1" colorSpace="calibratedRGB"/>
+                                </imageView>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="AWX-WV-Hqv">
+                            <items>
+                                <button width="60" height="20" alignment="left" title="透明度" id="BKU-5b-cuE">
+                                    <connections>
+                                        <action selector="OpacityBtnTapped" destination="63I-vC-ihU" id="NFx-lH-PCs"/>
+                                    </connections>
+                                </button>
+                                <button width="60" height="20" alignment="left" title="缩放" id="r1d-Oy-ykQ">
+                                    <connections>
+                                        <action selector="ScaleBtnTapped" destination="63I-vC-ihU" id="BVi-pK-JUO"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="V6P-gk-OW7">
+                            <items>
+                                <button width="60" height="20" alignment="left" title="对齐" id="DyB-Lm-gCz">
+                                    <connections>
+                                        <action selector="AlignmentBtnTapped" destination="63I-vC-ihU" id="LTQ-1A-U85"/>
+                                    </connections>
+                                </button>
+                                <button width="60" height="20" alignment="left" title="背景色" id="F06-uv-0i3">
+                                    <connections>
+                                        <action selector="ColorBtnTapped" destination="63I-vC-ihU" id="oWO-Io-Gd5"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="0FU-cz-XIT">
+                            <items>
+                                <button width="100" height="20" alignment="center" title="组合效果" id="f3N-95-n8i">
+                                    <connections>
+                                        <action selector="GroupAnimBtnTapped" destination="63I-vC-ihU" id="OI7-N3-G6D"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="group" destination="pL0-O5-02m" id="p9d-d2-uEH"/>
+                        <outlet property="image" destination="2fC-sm-qoG" id="b80-tN-Y2W"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="285" y="642"/>
+        </scene>
+        <!--Table Update Content Animation Interface Controller-->
+        <scene sceneID="RmF-he-t4y">
+            <objects>
+                <controller hidesWhenLoading="NO" id="bcP-YR-PQy" customClass="TableUpdateContentAnimationInterfaceController" customModule="WatchKit2_Sample_Animation_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="deN-s3-oEF">
+                            <items>
+                                <tableRow identifier="CellDetail" id="lck-3a-G8i" customClass="DetailRowController" customModule="WatchKit2_Sample_Animation_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="sa8-Bb-lkq">
+                                        <items>
+                                            <label width="1" alignment="left" text="简单描述文字...." id="IfR-ZK-2Im">
+                                                <fontDescription key="font" type="system" pointSize="15"/>
+                                            </label>
+                                            <button height="20" alignment="center" title="更多" id="ugA-gA-LBf">
+                                                <connections>
+                                                    <action selector="moreBtnTapped" destination="lck-3a-G8i" id="oTX-Ur-0RI"/>
+                                                </connections>
+                                            </button>
+                                            <label alignment="left" hidden="YES" text="详细描述文字，内容内容内容内容内容内容内容内容。" numberOfLines="0" id="Nti-fh-r0l">
+                                                <fontDescription key="font" type="system" pointSize="15"/>
+                                            </label>
+                                            <button height="20" alignment="center" hidden="YES" title="收起" id="9tA-Cc-C0C">
+                                                <connections>
+                                                    <action selector="backBtnTapped" destination="lck-3a-G8i" id="zYH-Xk-y1x"/>
+                                                </connections>
+                                            </button>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="DetailInfoLabel" destination="Nti-fh-r0l" id="zRz-Db-brP"/>
+                                        <outlet property="backBtn" destination="9tA-Cc-C0C" id="Z0h-5V-dbp"/>
+                                        <outlet property="moreBtn" destination="ugA-gA-LBf" id="Arl-Hj-kgv"/>
+                                        <outlet property="simpleInfoLabel" destination="IfR-ZK-2Im" id="YGY-0f-rf0"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="deN-s3-oEF" id="grd-do-GEw"/>
+                        <segue destination="PBw-Xi-7g7" kind="relationship" relationship="nextPage" id="6Ad-wl-sod"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="285" y="317"/>
         </scene>
     </scenes>
 </document>
